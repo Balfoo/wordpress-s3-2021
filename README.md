@@ -105,12 +105,18 @@ Nous retrouvons 3 principaux types de contenu :
 * Techniquement ceux sont les noms des types de contenu (post type), nous verrons plus tard qu’il est possible de créer des nouveaux types de contenu (Custom Post Type).
 
 
-## Menus
-Pour administrer un menu, vous devez vous rendre dans apparence -> menus, vous pouvez renseigner le nom du menu que vous souhaitez créer, par exemple « menu principal », puis cliquer sur « créer le menu », vous retrouvez ensuite dans la rubrique « Ajouter des éléments au
-menu », l’ensemble des contenus de votre site sur lesquels vous pouvez réaliser un lien, il est aussi possible d’ajouter un lien personnalisé vers une url externe par exemple, dans notre menu principal nous souhaitons ajouter trois pages :
+## Exercice
+Vous allez réaliser votre site portfolio, rien que ça et vous verrez cela vous prendra très peu de temps !
 
-- Page d’accueil
-- Actualités
-- Contact
+Vous pouvez télécharger l'archive **s3-site.zip** qui se trouve dans ce dépôt git, il s'agit d'un exemple de site portfolio que vous pouvez réaliser, libre à vous de changer les styles et le contenu bien sur 😉
 
-Sélectionner les pages et ajoutez les au menu, dans la rubrique `réglages du menu`, n’oubliez pas de cocher l’emplacement où le menu doit s’afficher, puis cliquer sur `enregistrer le menu`
+Pour commencer à éditer votre portfolio, depuis l'interface d'administration rendez-vous dans `apparence -> personnaliser`
+
+Depuis l'outil personnaliser, vous allez pouvoir changer le titre et slogan du site, par exemple : Portfolio de XX, modifier certains styles de votre site...
+
+Pour éditer ensuite le contenu des pages, il faudra vous rendre dans la rubrique `page`, et sélectionner la page que vous souhaitez éditer
+
+Pour éditer les images de votre site, vous pouvez accéder à la médiathèque en cliquant sur lien `médias`dans la barre latérale
+
+Pour éditer le contenu de votre blog, vous cliquerez sur le lien àrticles` 
+
