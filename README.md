@@ -96,7 +96,7 @@ Sur le marché, il existe plusieurs CMS, pour en citer quelques uns : Drupal, T
 
 D’après les statistiques de W3Techs, WordPress est le CMS le plus utilisé au monde avec 65.1%% d’utilisation des CMS sur le marché et 42.8% de tous les sites confondus. Il y a donc de fortes chances que vous rencontrerez WordPress dans le monde professionnel; que vous vous orientez dans un cursus de communication, d’ingénierie web ou peut-être pour proposer et/ou vendre vos propres services et/ou produits 😀
 
-Nous retrouvons 3 principaux types de contenu :
+Revenons à l'interface d'administration, nous retrouvons 3 principaux types de contenu :
 
 - Article (post*) : les articles correspondent aux actualités et/ou la partie blog de votre site.
 - Média (attachment*) : les médias de votre site, images, musiques, vidéos...
