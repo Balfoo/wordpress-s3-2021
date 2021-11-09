@@ -1,4 +1,4 @@
-# 🚀 Créer et administrer un site sous le cms WordPress 🚀
+# 🚀 Créer et administrer un site sous le cms WordPress
 
 ## <strike>Introduction</strike>
 
