@@ -108,7 +108,7 @@ Revenons à l'interface d'administration, nous retrouvons 3 principaux types de 
 ## Exercice
 Vous allez réaliser votre site portfolio, rien que ça et vous verrez cela vous prendra très peu de temps !
 
-Vous pouvez télécharger l'archive **s3-site.zip** qui se trouve dans ce dépôt git, il s'agit d'un exemple de site portfolio que vous pouvez réaliser, libre à vous de changer les styles et le contenu bien sur 😉
+Télécharger l'archive **s3-site.zip** qui se trouve dans ce dépôt git, il s'agit d'un exemple de site portfolio que vous pouvez réaliser, libre à vous de changer les styles et le contenu bien sur 😉
 
 Pour commencer à éditer votre portfolio, depuis l'interface d'administration rendez-vous dans `apparence -> personnaliser`
 
