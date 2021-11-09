@@ -118,5 +118,5 @@ Pour éditer ensuite le contenu des pages, il faudra vous rendre dans la rubriqu
 
 Pour éditer les images de votre site, vous pouvez accéder à la médiathèque en cliquant sur lien `médias`dans la barre latérale
 
-Pour éditer le contenu de votre blog, vous cliquerez sur le lien àrticles` 
+Pour éditer le contenu de votre blog, vous cliquerez sur le lien `articles` 
 
