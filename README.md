@@ -120,3 +120,165 @@ Pour éditer les images de votre site, vous pouvez accéder à la médiathèque 
 
 Pour éditer le contenu de votre blog, vous cliquerez sur le lien `articles` 
 
+<br><br><br><br><br><br>
+
+
+# Part 2
+
+## Créer votre thème !
+
+Commencez par télécharger l'archive `fondation.zip` pour découvrir la template à partir de laquelle vous allez réaliser votre thème
+
+Ouvrez-ensuite votre projet à partir de votre éditeur de code favori
+
+Les thèmes WordPress sont situés dans le dossier `wp-content/themes/`
+
+Un thème nécessite seulement 2 fichiers pour fonctionner, bon ce ne sera pas un thème très complet mais une bonne base pour découvrir son fonctionnement 😉
+
+Créer le dossier de votre thème, `theme-mmi` par exemple, appelez-le comme vous voulez :-)
+
+Dans le dossier de votre thème, créer les 2 fichiers suivants : 
+
+styles.css :
+```
+/*
+Theme Name: theme-mmi (nom de votre thème)
+Author: Vous ! (votre petit nom)
+Description: Description (description de votre thème)
+Version: 1.0.0
+Text Domain: theme-mmi (nécessaire si nous créons un thème multi-langue)
+*/
+```
+index.php :
+```
+<h1>Hello MMI !</h1>
+```
+
+Ces deux fichiers sont le minimum requis pour que WordPress détecte le thème et l'affiche dans la liste des thèmes. 
+
+Vous pouvez maintenant vous rendre dans le backend puis dans le menu latéral cliquer sur `Apparence -> Thèmes` pour activer votre thème.
+
+`Bonus : Pour attacher un visuel à votre thème, vous pouvez ajouter une image dans le dossier de votre thème et la renommer screenshot.png`
+
+## La base et la loop
+Consultez le front-office de votre site, vous devriez retrouver le contenu d'**index.php**.
+
+Nous allons créer le header et le footer de notre thème afin de les inclure dans notre page blanche.
+
+Créez les fichiers `header.php` et `footer.php`
+
+Le fichier `header.php` contiendra le haut de notre page et le fichier `footer.php` le bas. Dans `index.php`, il nous suffira alors de les inclure.
+
+header.php : 
+```
+<!doctype html>
+<html <?php language_attributes(); ?>>
+<head>
+	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<?php wp_head(); ?>
+</head>
+
+<body <?php body_class(); ?>>
+```
+
+footer.php :
+```
+<footer>
+  <p>&copy; Tous droits réservés</p>
+</footer>
+<?php wp_footer(); ?>
+
+</body>
+</html>
+```
+
+`Vous remarquerez une particularité, la balise body est ouverte dans le header et est
+fermée dans le footer.`
+
+Pour inclure le header et le footer dans notre template, nous ferons appel aux
+méthodes `get_header()` et `get_footer()` dans `index.php`
+
+index.php
+```
+<?php get_header(); ?>
+
+<h1>Hello MMI !</h1>
+
+<?php get_footer(); ?>
+```
+
+Enfin pour afficher le contenu de notre page plutôt que Hello MMI !, nous utiliserons The_Loop (la boucle) de WordPress, voir la documentation : https://developer.wordpress.org/themes/basics/ the-loop/
+
+
+```
+<?php
+  if ( have_posts() ) : // Si il y a du contenu à afficher
+
+    /* Start the Loop */
+    while ( have_posts() ) : // Boucle sur l'ensemble des contenus, si on consulte la page blog par exemple, nous allons itérer sur toutes les actualités
+      the_post();
+
+      the_title(); // Affiche le titre du contenu en cours dans la loop
+
+    endwhile;
+
+  endif;
+?>
+```
+
+## Paramétrage du thème
+
+Pour configurer notre thème, nous allons créer le fichier `functions.php` qui embarquera l’ensemble des fonctions php et paramètres de notre thème, déclaration de menus, nouveau type de contenu, chargement de fichiers...
+
+Commençons par créer le dossier `assets` dans lequel nous allons créer 3 dossiers pour stocker nos images (`img`), nos feuilles de styles (`css`) et nos fichiers javascript (`js`)
+
+Cela donne l'arborescence suivante : 
+
+```
+assets
+- img
+- css
+- js
+```
+
+Créer le fichier `functions.php`
+```
+<?php
+/**
+ * Enqueue scripts and styles.
+ */
+function theme_mmi_scripts() {
+  // Exemple pour charger une feuille de styles, get_template_directory_uri() nous renvoie le chemin du thème, nous concaténons ensuite le chemin jusqu'au fichier qui nous intéresse
+	wp_enqueue_style( 'theme-mmi-style', get_template_directory_uri() './assets/css/styles.css', array(), 1.0 );
+  
+  // Exemple pour charger un fichier javascript
+  wp_enqueue_script( 'theme-mmi-script', get_template_directory_uri() . '/assets/js/example.js', array(), 1.0, true );
+}
+add_action( 'wp_enqueue_scripts', 'theme_mmi_scripts' );
+```
+
+`Ci-dessus, la méthode `wp_enqueue_style()` nous permet de charger des ressources css et la méthode `wp_enqueue_script()`des ressources js, notez que dans les 2 cas le 1er paramètre passé à la méthode est un identifiant unique`
+
+Si tout se passe bien et que le fichier de styles existe, vous devriez voir les premiers styles de votre thème, bravo ! 👏
+
+## Déclarer un menu
+
+Dans le fichier `functions.php`, vous allez utiliser la méthode `register_nav_menus()` pour déclarer un ou plusieurs nouveau menu
+
+```
+register_nav_menus(
+  array(
+    'identifiant_menu' => 'Intitulé du menu que je retrouve dans le back-office',
+  )
+);
+```
+
+Pour afficher un menu, nous utiliserons la fonction `wp_nav_menu()` https:// developer.wordpress.org/reference/functions/wp_nav_menu/
+
+En appelant cette méthode, il faut lui préciser quel menu nous souhaitons afficher (menu principal dans le header par exemple), on peut lui passer en paramètre l’identifiant du menu que vous avez utilisé lors de sa création à l’aide de la fonction `register_nav_menus()`
+
+## Exercice
+
+Commencez par intégrer la page blog dans votre thème 🚀
